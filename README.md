@@ -1,39 +1,37 @@
-# The Angular-Sinatra generator 
+# The Angular-Go-Martini generator 
 
-A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Sinatra](http://www.sinatrarb.com/).
-
-Sinatra is a Ruby-based micro-framework.  For AngularJS integration with a Java-based micro-framework, see the [Angular-Dropwizard generator](https://github.com/rayokota/generator-angular-dropwizard).
+A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Martini](https://github.com/codegangsta/martini).
 
 ## Installation
 
-Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Ruby](https://www.ruby-lang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
+Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Go](http://golang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
 
 Install Yeoman:
 
     npm install -g yo
 
-Install the Angular-Sinatra generator:
+Install the Angular-Go-Martini generator:
 
-    npm install -g generator-angular-sinatra
+    npm install -g generator-angular-go-martini
 
-## Creating a Sinatra service
+## Creating a Martini service
 
 In a new directory, generate the service:
 
-    yo angular-sinatra
+    yo angular-go-martini
 
 Run the service:
 
-    rackup
+    go run server.go
 
-Your service will run at [http://localhost:9292](http://localhost:9292).
+Your service will run at [http://localhost:3000](http://localhost:3000).
 
 
 ## Creating a persistent entity
 
 Generate the entity:
 
-    yo angular-sinatra:entity [myentity]
+    yo angular-go-martini:entity [myentity]
 
 You will be asked to specify attributes for the entity, where each attribute has the following:
 
@@ -49,13 +47,13 @@ Files that are regenerated will appear as conflicts.  Allow the generator to ove
 
 Run the service:
 
-    rackup
+    go run server.go
     
 A client-side AngularJS application will now be available by running
 
 	grunt server
 	
-The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Sinatra service running at [http://localhost:9292](http://localhost:9292).
+The Grunt server will run at [http://localhost:9000](http://localhost:9000).  It will proxy REST requests to the Martini service running at [http://localhost:3000](http://localhost:3000).
 
 At this point you should be able to navigate to a page to manage your persistent entities.  
 
