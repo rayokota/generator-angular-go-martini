@@ -91,6 +91,6 @@ func (_ TextEncoder) Encode(v ...interface{}) (string, error) {
 
 func checkErr(err error, msg string) {
     if err != nil {
-        log.Fatalln(msg, err)
+        log.Panicln(msg, err)
     }
 }

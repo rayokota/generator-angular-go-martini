@@ -27,7 +27,7 @@ type CustomTypeConverter struct{}
 func init() {
     log.Println("Opening db...")
     db, err := sql.Open("sqlite3", "/tmp/my.db")
-    checkErr(err, "sql.Open failed")
+    checkErr(err, "opening db failed")
     Dbm = &gorp.DbMap{Db: db, Dialect: gorp.SqliteDialect{}}
     Dbm.TypeConverter = CustomTypeConverter{}
 
@@ -37,7 +37,7 @@ func init() {
 
     //Dbm.TraceOn("[gorp]", r.INFO)
     err = Dbm.CreateTablesIfNotExists()
-    checkErr(err, "Create tables failed")
+    checkErr(err, "create tables failed")
 
 }
 
