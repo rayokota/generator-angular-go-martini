@@ -20,6 +20,10 @@ In a new directory, generate the service:
 
     yo angular-go-martini
 
+Get the dependencies:
+
+    go get 
+
 Run the service:
 
     go run server.go

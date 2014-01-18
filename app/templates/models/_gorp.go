@@ -14,7 +14,7 @@ import (
 
 const (
     dbFormat = "2006-01-02 15:04:05"
-    jsonFormat = "2006-01-01"
+    jsonFormat = "2006-01-02"
 )
 
 var (
