@@ -135,7 +135,7 @@ EntityGenerator.prototype.askFor = function askFor() {
     } else if (attrType === 'Boolean') {
       attrImplType = 'bool';
     } else if (attrType === 'Date') {
-      attrImplType = 'time.Time';
+      attrImplType = 'JDate';
     } else if (attrType === 'Enum') {
       attrImplType = 'enum';
     }

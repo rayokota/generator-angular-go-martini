@@ -5,6 +5,7 @@ import (
     "encoding/json"
     "encoding/xml"
     "fmt"
+    "log"
 )
 
 // An Encoder implements an encoding format of values to be sent as response to
@@ -86,4 +87,10 @@ func (_ TextEncoder) Encode(v ...interface{}) (string, error) {
         }
     }
     return buf.String(), nil
+}
+
+func checkErr(err error, msg string) {
+    if err != nil {
+        log.Fatalln(msg, err)
+    }
 }

@@ -4,7 +4,6 @@ import (
     "../models"
     "encoding/json"
     "fmt"
-    "log"
     "net/http"
     "strconv"
     "github.com/codegangsta/martini"
@@ -18,7 +17,7 @@ func Get<%= _.capitalize(pluralize(name)) %>(r *http.Request, enc Encoder, db go
         checkErr(err, "select failed")
         return http.StatusInternalServerError, ""
     }
-    return http.StatusOK, Must(enc.Encode(toIface(<%= pluralize(name) %>)...))
+    return http.StatusOK, Must(enc.Encode(<%= pluralize(name) %>toIface(<%= pluralize(name) %>)...))
 }
 
 func Get<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms martini.Params) (int, string) {
@@ -85,7 +84,7 @@ func Delete<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms mar
     return http.StatusNoContent, ""
 }
 
-func toIface(v []models.<%= _.capitalize(name) %>) []interface{} {
+func <%= pluralize(name) %>toIface(v []models.<%= _.capitalize(name) %>) []interface{} {
     if len(v) == 0 {
         return nil
     }
@@ -94,10 +93,4 @@ func toIface(v []models.<%= _.capitalize(name) %>) []interface{} {
         ifs[i] = v
     }
     return ifs
-}
-
-func checkErr(err error, msg string) {
-    if err != nil {
-        log.Fatalln(msg, err)
-    }
 }

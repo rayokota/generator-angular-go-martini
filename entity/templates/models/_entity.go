@@ -1,9 +1,5 @@
 package models
 
-import "time"
-
-var date time.Time
-
 type <%= _.capitalize(name) %> struct {
     Id int `json:"id"`
     <% _.each(attrs, function (attr) { %>
