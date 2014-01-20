@@ -17,7 +17,7 @@ func Get<%= _.capitalize(pluralize(name)) %>(r *http.Request, enc Encoder, db go
         checkErr(err, "select failed")
         return http.StatusInternalServerError, ""
     }
-    return http.StatusOK, Must(enc.Encode(<%= pluralize(name) %>toIface(<%= pluralize(name) %>)...))
+    return http.StatusOK, Must(enc.Encode(<%= pluralize(name) %>ToIface(<%= pluralize(name) %>)...))
 }
 
 func Get<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms martini.Params) (int, string) {
@@ -84,7 +84,7 @@ func Delete<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms mar
     return http.StatusNoContent, ""
 }
 
-func <%= pluralize(name) %>toIface(v []models.<%= _.capitalize(name) %>) []interface{} {
+func <%= pluralize(name) %>ToIface(v []models.<%= _.capitalize(name) %>) []interface{} {
     if len(v) == 0 {
         return nil
     }
