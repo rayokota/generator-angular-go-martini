@@ -2,7 +2,6 @@ package routes
 
 import (
     "../models"
-    "encoding/json"
     "fmt"
     "net/http"
     "strconv"
@@ -10,7 +9,7 @@ import (
     "github.com/coopernurse/gorp"
 )
 
-func Get<%= _.capitalize(pluralize(name)) %>(r *http.Request, enc Encoder, db gorp.SqlExecutor) (int, string) {
+func Get<%= _.capitalize(pluralize(name)) %>(enc Encoder, db gorp.SqlExecutor) (int, string) {
     var <%= pluralize(name) %> []models.<%= _.capitalize(name) %>
     _, err := db.Select(&<%= pluralize(name) %>, "select * from <%= pluralize(name) %> order by id")
     if err != nil {
@@ -32,10 +31,7 @@ func Get<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms martin
     return http.StatusOK, Must(enc.EncodeOne(entity))
 }
 
-func Add<%= _.capitalize(name) %>(w http.ResponseWriter, r *http.Request, enc Encoder, db gorp.SqlExecutor) (int, string) {
-    decoder := json.NewDecoder(r.Body)
-    var entity models.<%= _.capitalize(name) %>   
-    decoder.Decode(&entity)
+func Add<%= _.capitalize(name) %>(entity models.<%= _.capitalize(name) %>, w http.ResponseWriter, enc Encoder, db gorp.SqlExecutor) (int, string) {
     err := db.Insert(&entity)
     if err != nil {
         checkErr(err, "insert failed")
@@ -45,7 +41,7 @@ func Add<%= _.capitalize(name) %>(w http.ResponseWriter, r *http.Request, enc En
     return http.StatusCreated, Must(enc.EncodeOne(entity))
 }
 
-func Update<%= _.capitalize(name) %>(r *http.Request, enc Encoder, db gorp.SqlExecutor, parms martini.Params) (int, string) {
+func Update<%= _.capitalize(name) %>(entity models.<%= _.capitalize(name) %>, enc Encoder, db gorp.SqlExecutor, parms martini.Params) (int, string) {
     id, err := strconv.Atoi(parms["id"])
     obj, _ := db.Get(models.<%= _.capitalize(name) %>{}, id)
     if err != nil || obj == nil {
@@ -55,9 +51,6 @@ func Update<%= _.capitalize(name) %>(r *http.Request, enc Encoder, db gorp.SqlEx
     }
     oldEntity := obj.(*models.<%= _.capitalize(name) %>)
 
-    decoder := json.NewDecoder(r.Body)
-    var entity models.<%= _.capitalize(name) %>   
-    decoder.Decode(&entity)
     entity.Id = oldEntity.Id
     _, err = db.Update(&entity)
     if err != nil {
@@ -67,7 +60,7 @@ func Update<%= _.capitalize(name) %>(r *http.Request, enc Encoder, db gorp.SqlEx
     return http.StatusOK, Must(enc.EncodeOne(entity))
 }
 
-func Delete<%= _.capitalize(name) %>(enc Encoder, db gorp.SqlExecutor, parms martini.Params) (int, string) {
+func Delete<%= _.capitalize(name) %>(db gorp.SqlExecutor, parms martini.Params) (int, string) {
     id, err := strconv.Atoi(parms["id"])
     obj, _ := db.Get(models.<%= _.capitalize(name) %>{}, id)
     if err != nil || obj == nil {

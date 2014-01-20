@@ -8,6 +8,7 @@ import (
     "regexp"
     "strings"
     "github.com/codegangsta/martini"
+    <% if (entities.length > 0) { %>"github.com/codegangsta/martini-contrib/binding"<% }; %>
     "github.com/coopernurse/gorp"
 )
 
@@ -26,8 +27,8 @@ func init() {
     <% _.each(entities, function (entity) { %>
     r.Get(`/<%= baseName %>/<%= pluralize(entity.name) %>`, routes.Get<%= _.capitalize(pluralize(entity.name)) %>)
     r.Get(`/<%= baseName %>/<%= pluralize(entity.name) %>/:id`, routes.Get<%= _.capitalize(entity.name) %>)
-    r.Post(`/<%= baseName %>/<%= pluralize(entity.name) %>`, routes.Add<%= _.capitalize(entity.name) %>)
-    r.Put(`/<%= baseName %>/<%= pluralize(entity.name) %>/:id`, routes.Update<%= _.capitalize(entity.name) %>)
+    r.Post(`/<%= baseName %>/<%= pluralize(entity.name) %>`, binding.Json(models.<%= _.capitalize(entity.name) %>{}), routes.Add<%= _.capitalize(entity.name) %>)
+    r.Put(`/<%= baseName %>/<%= pluralize(entity.name) %>/:id`, binding.Json(models.<%= _.capitalize(entity.name) %>{}), routes.Update<%= _.capitalize(entity.name) %>)
     r.Delete(`/<%= baseName %>/<%= pluralize(entity.name) %>/:id`, routes.Delete<%= _.capitalize(entity.name) %>)
     <% }); %>
     // Inject database
