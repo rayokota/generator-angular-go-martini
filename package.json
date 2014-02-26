@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-go-martini",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A Yeoman generator for AngularJS + Go + Martini",
   "keywords": [
     "yeoman-generator",
@@ -9,7 +9,7 @@
     "Martini",
     "gorp",
     "AngularJS",
-    "Twitter Bootstrap"
+    "Bootstrap"
   ],
   "homepage": "https://github.com/rayokota/generator-angular-go-martini",
   "bugs": "https://github.com/rayokota/generator-angular-go-martini/issues",
