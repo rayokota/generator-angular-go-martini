@@ -6,7 +6,7 @@ Martini is a Go-based micro-framework.  For AngularJS integration with other mic
 
 ## Installation
 
-Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Go](http://golang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
+Install [Git](http://git-scm.com), [node.js](http://nodejs.org), and [Go 1.1](http://golang.org/).  The development mode also requires [SQLite](http://www.sqlite.org).
 
 Install Yeoman:
 
