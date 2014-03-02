@@ -16,6 +16,8 @@ Install the Angular-Go-Martini generator:
 
     npm install -g generator-angular-go-martini
 
+The above prerequisites can be installed to a VM using the [Angular-Go-Martini provisioner](https://github.com/rayokota/provision-angular-go-martini).
+
 ## Creating a Martini service
 
 In a new directory, generate the service:
