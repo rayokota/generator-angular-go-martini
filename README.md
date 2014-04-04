@@ -1,6 +1,6 @@
 # The Angular-Go-Martini generator 
 
-A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Martini](https://github.com/codegangsta/martini).
+A [Yeoman](http://yeoman.io) generator for [AngularJS](http://angularjs.org) and [Martini](https://github.com/go-martini/martini).
 
 Martini is a Go-based micro-framework.  For AngularJS integration with other micro-frameworks, see https://github.com/rayokota/MicroFrameworkRosettaStone.
 
