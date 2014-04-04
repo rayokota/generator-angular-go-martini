@@ -7,8 +7,8 @@ import (
     "net/http"
     "regexp"
     "strings"
-    "github.com/codegangsta/martini"
-    <% if (entities.length > 0) { %>"github.com/codegangsta/martini-contrib/binding"<% }; %>
+    "github.com/go-martini/martini"
+    <% if (entities.length > 0) { %>"github.com/martini-contrib/binding"<% }; %>
     "github.com/coopernurse/gorp"
 )
 
