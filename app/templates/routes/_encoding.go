@@ -75,7 +75,7 @@ func (_ XmlEncoder) Encode(v ...interface{}) (string, error) {
 type TextEncoder struct{}
 
 // TextEncoder is an Encoder that produces plain text-formatted responses.
-func (e TextEncoder) EncodeOne(v ...interface{}) (string, error) {
+func (e TextEncoder) EncodeOne(v interface{}) (string, error) {
     return e.Encode(v)
 }
 
