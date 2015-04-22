@@ -9,7 +9,7 @@ import (
     "strings"
     "github.com/go-martini/martini"
     <% if (entities.length > 0) { %>"github.com/martini-contrib/binding"<% }; %>
-    "github.com/coopernurse/gorp"
+    "github.com/go-gorp/gorp"
 )
 
 // The one and only martini instance.
