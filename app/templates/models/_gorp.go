@@ -8,7 +8,7 @@ import (
     "log"
     "reflect"
     "time"
-    "github.com/coopernurse/gorp"
+    "github.com/go-gorp/gorp"
     _ "github.com/mattn/go-sqlite3"
 )
 

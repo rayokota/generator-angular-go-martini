@@ -6,7 +6,7 @@ import (
     "net/http"
     "strconv"
     "github.com/go-martini/martini"
-    "github.com/coopernurse/gorp"
+    "github.com/go-gorp/gorp"
 )
 
 func Get<%= _.capitalize(pluralize(name)) %>(enc Encoder, db gorp.SqlExecutor) (int, string) {
